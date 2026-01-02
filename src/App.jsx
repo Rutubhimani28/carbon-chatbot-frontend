@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import ChatUI from "./ChatUi";
 import Login from "./login";
 import Register from "./register";
@@ -28,7 +28,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/home" element={<ChatUI />} />
+        <Route path="/" element={<ChatUI />} />
+        {/* <Route
+          path="*"
+          element={<Navigate to={isLoggedIn ? "/home" : "/login"} replace />}
+        /> */}
       </Routes>
       <ToastContainer />
     </>
